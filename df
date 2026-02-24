@@ -1,0 +1,623 @@
+* [33me9b88598[m[33m ([m[1;31morigin/framework-syntax-fix[m[33m, [m[1;32mframework-syntax-fix[m[33m)[m fix: add missing closing parenthesis in urlpatterns
+*   [33m4545a434[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #38 from Sadat154/framework-agreeements-api
+[32m|[m[33m\[m  
+[32m|[m * [33md92005b9[m[33m ([m[1;31morigin/framework-agreeements-api[m[33m)[m add item categories endpoint for filter
+[32m|[m *   [33mc2c97f7d[m Merge branch 'main' into framework-agreeements-api
+[32m|[m [34m|[m[32m\[m  
+[32m|[m [34m|[m[32m/[m  
+[32m|[m[32m/[m[34m|[m   
+* [34m|[m   [33m78604fdf[m Merge pull request #40 from Sadat154/fix-stock-inventory-filters
+[36m|[m[1;31m\[m [34m\[m  
+[36m|[m [1;31m|[m * [33m7ee7933e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mframework-agreeements-api[m[33m)[m fix: remove unnecessary trailing whitespace in serializer import
+[36m|[m [1;31m|[m * [33m1af03a93[m fix: correct country ID and name mapping in CleanedFrameworkAgreementSummaryView
+[36m|[m [1;31m|[m * [33m43e21871[m Update api/drf_views.py
+[36m|[m [1;31m|[m * [33mf71f9c87[m Update api/drf_views.py
+[36m|[m [1;31m|[m [1;31m|[m *   [33m94d62cfc[m[33m ([m[1;35mrefs/stash[m[33m)[m WIP on framework-agreeements-api: b706f84d fix: correct country ID and name mapping in CleanedFrameworkAgreementSummaryView
+[36m|[m [1;31m|[m [1;31m|[m [1;32m|[m[1;33m\[m  
+[36m|[m [1;31m|[m [1;31m|[m [1;32m|[m * [33m7f26ef8a[m index on framework-agreeements-api: b706f84d fix: correct country ID and name mapping in CleanedFrameworkAgreementSummaryView
+[36m|[m [1;31m|[m [1;31m|[m [1;32m|[m[1;32m/[m  
+[36m|[m [1;31m|[m [1;31m|[m * [33mb706f84d[m fix: correct country ID and name mapping in CleanedFrameworkAgreementSummaryView
+[36m|[m [1;31m|[m [1;31m|[m[1;31m/[m  
+[36m|[m [1;31m|[m * [33m9aa607f9[m add ngrok
+[36m|[m [1;31m|[m * [33m2ff9528a[m add endpoint for per-country stats of cleaned framework agreements
+[36m|[m [1;31m|[m * [33m6c7ecc5f[m add summary endpoint for cleaned framework agreements
+[36m|[m [1;31m|[m * [33m4a902293[m add item categories endpoint for filter
+[36m|[m [1;31m|[m * [33m95ec2d27[m add instructions for creating and bulk indexing cleaned framework agreements Elasticsearch index
+[36m|[m [1;31m|[m * [33m660d478d[m add serializer for cleaned framework agreements
+[36m|[m [1;31m|[m * [33m69d29486[m add route for cleaned framework agreements in API
+[36m|[m [1;31m|[m * [33mfeb4bba7[m add command to create cleaned framework agreements Elasticsearch index
+[36m|[m [1;31m|[m * [33mdb5f98b3[m add es bulk index file
+[36m|[m [1;31m|[m * [33mf815c889[m add serializer for fa tables
+[36m|[m [1;31m|[m * [33m3b538c62[m add es indexes for framework agreements
+[36m|[m [1;31m|[m * [33m49ae8309[m add server side filters for framework agreements
+[36m|[m [1;31m|[m * [33m310cb8a0[m add es framework agreement raw table viewset
+[36m|[m [1;31m|[m * [33m110e3317[m add ngrok http url
+[36m|[m [1;31m|[m [1;33m|[m * [33mafc84835[m[33m ([m[1;31morigin/stock-inventory-qol[m[33m, [m[1;31morigin/fix-stock-inventory-filters[m[33m)[m fix: include country_name and region in ES docs; normalize region filter matching
+[36m|[m [1;31m|[m [1;33m|[m * [33m76d7056f[m docs: add command for stock inventory indexing
+[36m|[m [1;31m|[m [1;33m|[m[1;31m/[m  
+[36m|[m [1;31m|[m[1;31m/[m[1;33m|[m   
+[36m|[m * [1;33m|[m [33m93bb3f9a[m fix: lint check errors
+[36m|[m * [1;33m|[m [33m05a19b57[m fix: item category and item name no options available
+[36m|[m[36m/[m [1;33m/[m  
+* [1;33m|[m   [33m052db096[m Merge pull request #39 from Sadat154/customs-llm
+[1;35m|[m[1;36m\[m [1;33m\[m  
+[1;35m|[m * [1;33m|[m [33mfebf821e[m[33m ([m[1;31morigin/customs-llm[m[33m)[m Add disk space cleanup step in CI workflow
+[1;35m|[m * [1;33m|[m [33m44272d62[m fix: trailing whitespace and unused imports fixes
+[1;35m|[m * [1;33m|[m [33mf3f6a35a[m fix: blank line containsa whitespace fixes
+[1;35m|[m * [1;33m|[m [33m0dee822c[m fix: pre-commit fix auto fixes
+[1;35m|[m * [1;33m|[m [33m9c37842c[m feat: Integrate real-time DuckDuckGo search for evidence extraction and improvde use of gpt for text summarisation
+[1;35m|[m * [1;33m|[m [33m4d2baaa8[m feat: update celery version and add DDG library to uv.lock and pyproject.toml
+[1;35m|[m * [1;33m|[m [33mbd3c538d[m ignore: testing purposes
+[1;35m|[m [1;33m|[m[1;33m/[m  
+* [1;33m|[m   [33m584f6635[m Merge pull request #34 from Sadat154/stock-inventory
+[1;33m|[m[32m\[m [1;33m\[m  
+[1;33m|[m [32m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[32m|[m   
+[1;33m|[m * [33m14362cd5[m[33m ([m[1;31morigin/stock-inventory[m[33m)[m fix: CI checks failing
+[1;33m|[m * [33m0f1eecd2[m fix: Stock Inventory item status not showing
+[1;33m|[m * [33m23798a55[m docs: update CHANGELOG.md
+[1;33m|[m * [33mb67a276e[m feat: add WarehouseStocksSummaryView
+[1;33m|[m * [33m8c27dc65[m feat: add warehouse stocks summary endpoint
+[1;33m|[m * [33m1d3a0c8b[m perf: add bucket sort for AggregatedWarehouseStocksView
+[1;33m|[m * [33mcce28473[m perf: redis caching for AggregatedWarehouseStocksView
+[1;33m|[m[1;33m/[m  
+*   [33m11ee39c7[m Merge pull request #29 from Sadat154/stock-inventory
+[33m|[m[34m\[m  
+[33m|[m * [33mf00a6bba[m chore: format warehouse_stocks_views.py with black
+[33m|[m * [33m5ca53c9f[m feat: update warehouse stocks filters and item URL mapping
+[33m|[m * [33mc8e5f3a6[m fix: filter table when clicking country bubble on map
+[33m|[m[33m/[m  
+*   [33md3248a0d[m Merge pull request #28 from Sadat154/store_cleaned_fa
+[35m|[m[36m\[m  
+[35m|[m * [33m447e803b[m[33m ([m[1;31morigin/store_cleaned_fa[m[33m)[m test: remove tests for obsolete framework agreements
+[35m|[m * [33m8a61a979[m docs: update changelog
+[35m|[m *   [33m9a0ad058[m fix: pre-commit checks
+[35m|[m [1;31m|[m[1;32m\[m  
+[35m|[m [1;31m|[m * [33m5fff7608[m feat: add processing for new fields in FabricImportAPIView
+[35m|[m [1;31m|[m * [33m5bedcddb[m refactor: add migrations
+[35m|[m [1;31m|[m * [33mf23695e1[m feat: add fields to CleanedFrameworkAgreement
+[35m|[m [1;31m|[m * [33me77a53c9[m feat: add Fabric import endpoint
+[35m|[m [1;31m|[m * [33m3329cf3e[m test: add ngrok host to ALLOWED_HOSTS (remove later)
+[35m|[m [1;31m|[m * [33m2defc4c1[m feat: add FabricImportAPIView
+[35m|[m [1;31m|[m * [33mbd8d7e23[m feat: add CleanedFrameworkAgreement model
+[35m|[m [1;31m|[m * [33m09e8ce51[m feat: add migrations
+[35m|[m * [1;32m|[m [33md0427f7f[m fix: pre-commit check
+[35m|[m * [1;32m|[m [33m3f0492c9[m feat: add processing for new fields in FabricImportAPIView
+[35m|[m * [1;32m|[m [33m5289a401[m refactor: add migrations
+[35m|[m * [1;32m|[m [33m78a8f670[m feat: add fields to CleanedFrameworkAgreement
+[35m|[m * [1;32m|[m [33m2b41cc74[m feat: add Fabric import endpoint
+[35m|[m * [1;32m|[m [33m76f1b817[m test: add ngrok host to ALLOWED_HOSTS (remove later)
+[35m|[m * [1;32m|[m [33mfacbd3b8[m feat: add FabricImportAPIView
+[35m|[m * [1;32m|[m [33m11b7c2b0[m feat: add CleanedFrameworkAgreement model
+[35m|[m * [1;32m|[m [33me01da79e[m feat: add migrations
+[35m|[m[35m/[m [1;32m/[m  
+* [1;32m|[m   [33m295019cc[m Merge pull request #26 from Sadat154/fix/backend-workflow-linting
+[1;33m|[m[1;34m\[m [1;32m\[m  
+[1;33m|[m * [1;32m|[m [33mbbbb6255[m[33m ([m[1;31morigin/fix/backend-workflow-linting[m[33m)[m fix: update appeal test dates for 2026 compatibility
+[1;33m|[m * [1;32m|[m [33m23009ddf[m fix: add missing whitespace
+[1;33m|[m * [1;32m|[m [33mde33eb83[m fix: resolve backend CI linting failures
+[1;33m|[m[1;33m/[m [1;32m/[m  
+* [1;32m|[m   [33ma96ad2ea[m Merge branch 'main' of https://github.com/Sadat154/go-api-ucl
+[1;35m|[m[1;36m\[m [1;32m\[m  
+[1;35m|[m * [1;32m|[m [33mee88ba6a[m Merge pull request #24 from Sadat154/warehouse-stocks-elasticsearch
+[1;35m|[m [31m|[m[1;32m\[m[1;32m|[m 
+[1;35m|[m [31m|[m * [33mfd19bb2b[m[33m ([m[1;31morigin/warehouse-stocks-elasticsearch[m[33m)[m feat: apply region filtering
+[1;35m|[m [31m|[m * [33m6f90e5ab[m api: add /warehouse-stocks/aggregated/ endpoint (ES aggregation + DB fallback)
+[1;35m|[m [31m|[m * [33m85667c63[m refactor: add --exclude argument to pull_fabric_data command
+[1;35m|[m [31m|[m * [33m37a2cd03[m feat: add management command to bulk-index warehouse×product aggregates into ES
+[1;35m|[m [31m|[m * [33m9a267c3f[m feat: add management command to bulk-index warehouse×product aggregates into ES
+[1;35m|[m [31m|[m * [33m71a4edfe[m feat: add ES-backed search, filter, pagination and sorting to WarehouseStocksView
+[1;35m|[m [31m|[m * [33m3829e696[m feat: add warehouse index mapping
+[1;35m|[m [31m|[m[31m/[m  
+* [31m/[m [33mbd7aea3b[m fix: guidance on passing CI checks locally added to READ ME
+[31m|[m[31m/[m  
+*   [33m7478b41f[m Merge pull request #21 from Sadat154/fix/precommitfixes
+[33m|[m[34m\[m  
+[33m|[m *   [33mb01c1e65[m[33m ([m[1;31morigin/fix/precommitfixes[m[33m)[m Merge branch 'fix/precommitfixes' of github.com:Sadat154/go-api-ucl into fix/precommitfixes
+[33m|[m [35m|[m[36m\[m  
+[33m|[m [35m|[m * [33mdd144cfe[m Disable OpenAPI schema validation in CI
+[33m|[m * [36m|[m [33m1fe1a452[m fix: fix failing unit tests
+[33m|[m [36m|[m[36m/[m  
+[33m|[m * [33m64f5af9d[m fix: pre-commit fixes
+[33m|[m *   [33mcc31563b[m Merge branch 'main' into fix/precommitfixes
+[33m|[m [1;31m|[m[1;32m\[m  
+[33m|[m * [1;32m|[m [33m046e5deb[m fix: fix all pre commit formatting issues
+[33m|[m * [1;32m|[m [33md21a0b64[m fix: merge required by CI/CL
+[33m|[m * [1;32m|[m [33mcfbe432a[m fix: fix all pre commit issues
+* [1;32m|[m [1;32m|[m [33mf898720c[m Disable OpenAPI schema validation in CI
+[1;32m|[m [1;32m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;32m|[m   
+* [1;32m|[m   [33mefb1aa91[m Merge pull request #18 from Sadat154/custom-regulations-api
+[1;33m|[m[1;34m\[m [1;32m\[m  
+[1;33m|[m * [1;32m|[m [33mbd8d6ed5[m[33m ([m[1;31morigin/custom-regulations-api[m[33m)[m feat: Add authenticated API views for customs regulations endpoints
+[1;33m|[m * [1;32m|[m [33m110d1fbb[m feat: Add serializers for structured customs regulations responses
+[1;33m|[m * [1;32m|[m [33m6f832506[m feat: create parser that reads through customs data and stores in a dictionary
+[1;33m|[m * [1;32m|[m [33mf3078534[m[33m ([m[1;31morigin/fix-old-image-usage[m[33m)[m fix: update image version in docker-compose.yml
+[1;33m|[m * [1;32m|[m [33m155800fc[m fix: force every container to use same image
+* [1;34m|[m [1;32m|[m   [33mda162597[m Merge pull request #22 from Sadat154/warehouse-stocks
+[1;32m|[m[1;36m\[m [1;34m\[m [1;32m\[m  
+[1;32m|[m [1;36m|[m[1;32m_[m[1;34m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;36m|[m [1;34m|[m   
+[1;32m|[m [1;36m|[m [1;34m|[m * [33mbe35e487[m[33m ([m[1;31morigin/warehouse-stocks[m[33m)[m feat: add item URL mapping in warehouse stocks view
+[1;32m|[m [1;36m|[m [1;34m|[m[1;36m/[m  
+[1;32m|[m [1;36m|[m[1;36m/[m[1;34m|[m   
+[1;32m|[m * [1;34m|[m [33m28436a52[m feat: add warehouse stocks API route
+[1;32m|[m[1;32m/[m [1;34m/[m  
+* [1;34m|[m   [33mddf86750[m Merge pull request #20 from Sadat154/item-scraper
+[32m|[m[33m\[m [1;34m\[m  
+[32m|[m * [1;34m|[m [33m93f096bc[m[33m ([m[1;31morigin/item-scraper[m[33m)[m feat: store scraped data into database
+[32m|[m * [1;34m|[m [33m9a8a58a2[m[33m ([m[1;31morigin/framework-agreements[m[33m)[m feat: create scraper prototype
+[32m|[m * [1;34m|[m [33m5a4fd0ab[m[33m ([m[1;31morigin/pro-bono[m[33m)[m feat: add pro bono static data
+[32m|[m [1;34m|[m[1;34m/[m  
+* [1;34m|[m   [33m8640d45b[m Merge pull request #17 from Sadat154/fix-incorrect-model
+[34m|[m[35m\[m [1;34m\[m  
+[34m|[m * [1;34m|[m [33m879cb05c[m[33m ([m[1;31morigin/fix-incorrect-model[m[33m)[m fix: dimconsignment has null values in fabric
+[34m|[m[34m/[m [1;34m/[m  
+* [1;34m|[m   [33m49634017[m Merge pull request #16 from Sadat154/fix-datetime-error
+[1;34m|[m[1;31m\[m [1;34m\[m  
+[1;34m|[m [1;31m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;31m|[m   
+[1;34m|[m * [33m0ab8d37a[m[33m ([m[1;31morigin/fix-datetime-error[m[33m)[m fix: normalize Fabric datetime values for DateField and DateTimeField
+[1;34m|[m * [33mdcd85a00[m fix: modify incorrect datetimefields to correct date fields in models
+[1;34m|[m[1;34m/[m  
+*   [33m1b3a33a0[m Merge pull request #14 from Sadat154/fix-mac-compatibility
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33mbbdd07ae[m fix: fix mac incompatibility with previous msodbcsql18 docker installation
+* [1;33m|[m [33m0875688e[m Merge pull request #12 from Sadat154/api-endpoints
+[1;34m|[m[1;33m\[m[1;33m|[m 
+[1;34m|[m * [33m20cdc172[m[33m ([m[1;31morigin/api-endpoints[m[33m)[m feat: add apis, serialisers, filter sets for retrieving data from tables to be used by frontend
+[1;34m|[m * [33m8320c1be[m refactor: update read me slightly to be easier to follow
+[1;34m|[m * [33m21bd8809[m feat: read only viewset (api endpoint) for dim agreement line
+[1;34m|[m * [33m0e616229[m feat: create filter set allowing for search/filter/sort within api
+[1;34m|[m * [33m97e4a35f[m feat: create basic serializer for DimAgreementLine
+[1;34m|[m * [33ma637c03c[m feat: add api routing for spark data
+[1;34m|[m * [33m0c061ad2[m fix: resolved issue with autogenerating PK for "Dim Appeal"
+[1;34m|[m[1;34m/[m  
+*   [33m78dafab5[m Merge pull request #10 from Sadat154/fix-migrations
+[1;36m|[m[31m\[m  
+[1;36m|[m *   [33mdd7b8069[m Merge branch 'fix-migrations' of https://github.com/Sadat154/go-api-ucl into fix-migrations
+[1;36m|[m [32m|[m[33m\[m  
+[1;36m|[m [32m|[m * [33m4b821136[m fix: remove conflicting merge
+[1;36m|[m * [33m|[m [33m7b2284cf[m fix: remove unecessary migration merge
+[1;36m|[m * [33m|[m [33mb4a81fdc[m fix: remove conflicting merge
+[1;36m|[m[1;36m/[m [33m/[m  
+* [33m|[m   [33mbbd30438[m Merge pull request #9 from Sadat154/spark-models
+[33m|[m[35m\[m [33m\[m  
+[33m|[m [35m|[m[33m/[m  
+[33m|[m[33m/[m[35m|[m   
+[33m|[m *   [33md621a220[m[33m ([m[1;31morigin/spark-models[m[33m)[m Merge branch 'main' into spark-models
+[33m|[m [36m|[m[33m\[m  
+[33m|[m [36m|[m[33m/[m  
+[33m|[m[33m/[m[36m|[m   
+* [36m|[m   [33m27a700a7[m Merge pull request #7 from Sadat154/api-endpoints
+[1;32m|[m[1;33m\[m [36m\[m  
+[1;32m|[m * [36m\[m   [33mf0543c05[m Merge branch 'main' into api-endpoints
+[1;32m|[m [1;34m|[m[1;32m\[m [36m\[m  
+[1;32m|[m [1;34m|[m[1;32m/[m [36m/[m  
+[1;32m|[m[1;32m/[m[1;34m|[m [36m|[m   
+* [1;34m|[m [36m|[m   [33m7f01a8a0[m Merge pull request #6 from Sadat154/spark-models
+[1;36m|[m[31m\[m [1;34m\[m [36m\[m  
+* [31m\[m [1;34m\[m [36m\[m   [33m5d5f1331[m Merge pull request #5 from Sadat154/spark-models
+[32m|[m[33m\[m [31m\[m [1;34m\[m [36m\[m  
+* [33m\[m [31m\[m [1;34m\[m [36m\[m   [33me385f921[m Merge pull request #1 from Sadat154/chore/move-to-privaterepo
+[34m|[m[35m\[m [33m\[m [31m\[m [1;34m\[m [36m\[m  
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m12aece40[m refactor: improve read me
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m29fc523a[m refactor: comment touch ups
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m1cc83667[m chore: update changelog to reflect new additions
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mb229fdc8[m chore: update read me with instructions for pulling ms fabric data
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m202b6bdd[m chore: change chunk size for pulling data to be a bit more realistic
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mf15442d9[m fix: minor changes to models to match data in lakehouse
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mb964974b[m fix: change migrations in relation to changes in model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mb17e232a[m feat: create command for pulling all data from fabric and store in tables
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m34c14dd2[m chore: update max digits / decimal places to match values in tables
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m415b8173[m feat: create mapping for reliable fabric sql requests
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m10ccc63e[m fix: add filepath to docker serve volume
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m09e4271c[m fix: remove random api endpoint
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mbf39ed28[m feat(api): add migrations
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33ma8f24b22[m fix(factory): remove unnecessary import
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m6f84a776[m docs: update CHANGELOG.md
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m0e2d0e9b[m feat(factories): add ProductCategoryHierarchyFlattenedFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m50aff735[m feat(factories): add FctSalesOrderFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m8e03d08d[m feat(factories): add FctPurchaseOrderFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m6327a8af[m feat(factories): add FctProductReceiptFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m274510be[m feat(factories): add FctAgreementFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m255852cc[m feat(factories): add DimWarehouseFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m97c177d7[m feat(factories): add DimVendorPhysicalAddressFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m912443c8[m feat(factories): add DimVendorContactEmailFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m2f475f9c[m feat(factories): add DimVendorContactFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mbaf0e85f[m feat(factories): add DimVendorFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33md04a6689[m feat(factories): add DimSiteFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mc5f741f9[m feat(factories): add DimSalesOrderLineFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m2aa758f6[m feat(factories): add DimPurchaseOrderLineFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m22069618[m feat(factories): add DimProjectFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mc3e8bcd9[m feat(factories): add DimProductReceiptLineFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mde931ff3[m feat(factories): add DimProductCategoryFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m05d8b826[m feat(factories): add DimProductFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m47800332[m feat(factories): add DimPackingSlipLineFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m6889f346[m feat(factories): add DimLogisticsLocationFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m7907539c[m feat(factories): add DimLocationFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mcf42460a[m feat(factories): add DimItemBatchFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mfe3a5d23[m feat(factories): add DimInventoryTransactionOriginFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mf0c3e4ca[m feat(factories): add DimInventoryTransactionLineFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m9ae62a7c[m feat(factories): add DimInventoryTransactionFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33ma422fc0c[m feat(factories): add DimInventoryOwnerFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m29bf52e2[m feat(factories): add DimInventoryModuleFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m369b628c[m feat(factories): add DimInventoryItemStatusFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m10be020a[m feat(factories): add DimInventoryItemFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m3a81be94[m feat(factories): add DimDonorFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mac3e51ef[m feat(factories): add DimDeliveryModeFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m1b5c2956[m feat(factories): add DimConsignmentFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33ma585eeb8[m feat(factories): add DimBuyerGroupFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m8781c4d9[m feat(factories): add DimAppealFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33me22e8f98[m feat(factories): add DimAgreementLineFactory
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33ma4d0c5bb[m feat(api): add migrations
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m373aa0c5[m feat(api): add ProductCategoryHierarchyFlattened model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m531aaa82[m feat(api): add FctSalesOrder model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m8ac1a94c[m feat(api): add FctPurchaseOrder model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m3c667ae3[m feat(api): add FctProductReceipt model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33md2e90615[m feat(api): add FctAgreement model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mc1e07589[m feat(api): add DimWarehouse model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m562cf619[m feat(api): add DimVendorPhysicalAddress model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m28bd5330[m feat(api): add DimVendorContactEmail model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m4b8b7e6f[m feat(api): add DimVendorContact model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m11707130[m feat(api): add DimVendor model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m582fa0d9[m feat(api): add DimSite model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m01375836[m feat(api): add DimSalesOrderLine model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m721c5c7e[m feat(api): add DimPurchaseOrderLine model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33md4502235[m feat(api): add DimProject model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mf66afacf[m feat(api): add DimProductReceiptLine model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m1f4775f7[m feat(api): add DimProductCategory model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33md6657a03[m feat(api): add DimProduct model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m0bfcffd5[m feat(api): add DimPackingSlipLine model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m4486cbb8[m feat(api): add DimLogisticsLocation model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m3d100dc4[m feat(api): add DimLogisticsLocation model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mb1b09b32[m feat(api): add DimItemBatch model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m60d8f1a2[m feat(api): add DimInventoryTransactionOrigin model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m12bef86b[m feat(api): add DimInventoryTransactionLine model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mfec4854e[m feat(api): add DimInventoryTransaction model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m34357346[m feat(api): add DimInventoryOwner model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m6006737d[m feat(api): add DimInventoryModule model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mfaa94a21[m feat(api): add DimInventoryItemStatus model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m8e17d51c[m feat(api): add DimInventoryItem model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33md6073476[m feat(api): add DimDonor model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mdcfa63ef[m feat(api): add DimDeliveryMode model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m63294502[m feat(api): add DimConsignment model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m736763f7[m feat(api): add DimBuyerGroup model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m1535f9d4[m feat(api): add DimAppeal model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m440b48ad[m feat(api): add DimAgreementLine model
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33me89e2a08[m feat(api): add generic API calls which use helper function to retrieve data from MS Fabric Lakehouse
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mb12ceb65[m feat: add Azure AD–authenticated SQL connection helper for Fabric SQL Endpoint access
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m91c2f751[m chore(docker): add Azure CLI and unixODBC dependencies
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33m6ad718a5[m chore(docker): mount Azure CLI credentials for local Fabric auth
+[34m|[m [35m|[m [33m|[m [31m|[m * [36m|[m [33mc2bcb8de[m refactor: fix error in file ordering when moving changes
+[34m|[m [35m|[m [33m|[m[35m_[m[31m|[m[35m/[m [36m/[m  
+[34m|[m [35m|[m[35m/[m[33m|[m [31m|[m [36m|[m   
+[34m|[m [35m|[m [33m|[m [31m|[m * [33mb0743e82[m fix: conflicting migrations
+[34m|[m [35m|[m [33m|[m [31m|[m * [33m96ca62b4[m test: add unit tests for spark models
+[34m|[m [35m|[m [33m|[m [31m|[m[31m/[m  
+[34m|[m [35m|[m [33m|[m * [33m87deb781[m feat(api): add migrations
+[34m|[m [35m|[m [33m|[m * [33mf2540457[m fix(factory): remove unnecessary import
+[34m|[m [35m|[m [33m|[m[33m/[m  
+[34m|[m [35m|[m * [33mf2c33c21[m docs: update CHANGELOG.md
+[34m|[m [35m|[m * [33m8d2fb830[m feat(factories): add ProductCategoryHierarchyFlattenedFactory
+[34m|[m [35m|[m * [33mf36b825d[m feat(factories): add FctSalesOrderFactory
+[34m|[m [35m|[m * [33mf67dca00[m feat(factories): add FctPurchaseOrderFactory
+[34m|[m [35m|[m * [33me18bfecd[m feat(factories): add FctProductReceiptFactory
+[34m|[m [35m|[m * [33ma3d8a3e5[m feat(factories): add FctAgreementFactory
+[34m|[m [35m|[m * [33m9beb1341[m feat(factories): add DimWarehouseFactory
+[34m|[m [35m|[m * [33m90ba5819[m feat(factories): add DimVendorPhysicalAddressFactory
+[34m|[m [35m|[m * [33mabf193b6[m feat(factories): add DimVendorContactEmailFactory
+[34m|[m [35m|[m * [33m3ea7b79c[m feat(factories): add DimVendorContactFactory
+[34m|[m [35m|[m * [33m8ba47ca1[m feat(factories): add DimVendorFactory
+[34m|[m [35m|[m * [33med3e8b49[m feat(factories): add DimSiteFactory
+[34m|[m [35m|[m * [33m940f9d37[m feat(factories): add DimSalesOrderLineFactory
+[34m|[m [35m|[m * [33medea2751[m feat(factories): add DimPurchaseOrderLineFactory
+[34m|[m [35m|[m * [33mb8fffeca[m feat(factories): add DimProjectFactory
+[34m|[m [35m|[m * [33m274db8de[m feat(factories): add DimProductReceiptLineFactory
+[34m|[m [35m|[m * [33mc848a6f2[m feat(factories): add DimProductCategoryFactory
+[34m|[m [35m|[m * [33m98085323[m feat(factories): add DimProductFactory
+[34m|[m [35m|[m * [33m23241f9a[m feat(factories): add DimPackingSlipLineFactory
+[34m|[m [35m|[m * [33m34d671db[m feat(factories): add DimLogisticsLocationFactory
+[34m|[m [35m|[m * [33m0672fd0e[m feat(factories): add DimLocationFactory
+[34m|[m [35m|[m * [33meb6a98e0[m feat(factories): add DimItemBatchFactory
+[34m|[m [35m|[m * [33m26907495[m feat(factories): add DimInventoryTransactionOriginFactory
+[34m|[m [35m|[m * [33mc34f5d79[m feat(factories): add DimInventoryTransactionLineFactory
+[34m|[m [35m|[m * [33mecbbb7af[m feat(factories): add DimInventoryTransactionFactory
+[34m|[m [35m|[m * [33m0de72cf3[m feat(factories): add DimInventoryOwnerFactory
+[34m|[m [35m|[m * [33m415f014a[m feat(factories): add DimInventoryModuleFactory
+[34m|[m [35m|[m * [33m13bd9448[m feat(factories): add DimInventoryItemStatusFactory
+[34m|[m [35m|[m * [33mcd70e619[m feat(factories): add DimInventoryItemFactory
+[34m|[m [35m|[m * [33mb15ad7ed[m feat(factories): add DimDonorFactory
+[34m|[m [35m|[m * [33m5b19e6d1[m feat(factories): add DimDeliveryModeFactory
+[34m|[m [35m|[m * [33m06e09e55[m feat(factories): add DimConsignmentFactory
+[34m|[m [35m|[m * [33m1cbdcc89[m feat(factories): add DimBuyerGroupFactory
+[34m|[m [35m|[m * [33m29458ad8[m feat(factories): add DimAppealFactory
+[34m|[m [35m|[m * [33mf054f337[m feat(factories): add DimAgreementLineFactory
+[34m|[m [35m|[m * [33m03439fe0[m feat(api): add migrations
+[34m|[m [35m|[m * [33m1126c4ee[m feat(api): add ProductCategoryHierarchyFlattened model
+[34m|[m [35m|[m * [33mdc5c922b[m feat(api): add FctSalesOrder model
+[34m|[m [35m|[m * [33m926a3696[m feat(api): add FctPurchaseOrder model
+[34m|[m [35m|[m * [33ma0715586[m feat(api): add FctProductReceipt model
+[34m|[m [35m|[m * [33me5faef5b[m feat(api): add FctAgreement model
+[34m|[m [35m|[m * [33m483a8bdc[m feat(api): add DimWarehouse model
+[34m|[m [35m|[m * [33m8932067a[m feat(api): add DimVendorPhysicalAddress model
+[34m|[m [35m|[m * [33m13f6a9e5[m feat(api): add DimVendorContactEmail model
+[34m|[m [35m|[m * [33m3769d527[m feat(api): add DimVendorContact model
+[34m|[m [35m|[m * [33mdf4c4401[m feat(api): add DimVendor model
+[34m|[m [35m|[m * [33m2d392f2f[m feat(api): add DimSite model
+[34m|[m [35m|[m * [33m74a90677[m feat(api): add DimSalesOrderLine model
+[34m|[m [35m|[m * [33m71e88a57[m feat(api): add DimPurchaseOrderLine model
+[34m|[m [35m|[m * [33mf13d62da[m feat(api): add DimProject model
+[34m|[m [35m|[m * [33m58d600d3[m feat(api): add DimProductReceiptLine model
+[34m|[m [35m|[m * [33m0b461909[m feat(api): add DimProductCategory model
+[34m|[m [35m|[m * [33m21229129[m feat(api): add DimProduct model
+[34m|[m [35m|[m * [33m86e62e88[m feat(api): add DimPackingSlipLine model
+[34m|[m [35m|[m * [33m1754f88f[m feat(api): add DimLogisticsLocation model
+[34m|[m [35m|[m * [33m4f74d1e8[m feat(api): add DimLogisticsLocation model
+[34m|[m [35m|[m * [33m4a1fe628[m feat(api): add DimItemBatch model
+[34m|[m [35m|[m * [33mbd3da7fe[m feat(api): add DimInventoryTransactionOrigin model
+[34m|[m [35m|[m * [33m4cd57072[m feat(api): add DimInventoryTransactionLine model
+[34m|[m [35m|[m * [33m16d0ed69[m feat(api): add DimInventoryTransaction model
+[34m|[m [35m|[m * [33m1bcf64de[m feat(api): add DimInventoryOwner model
+[34m|[m [35m|[m * [33m60373023[m feat(api): add DimInventoryModule model
+[34m|[m [35m|[m * [33md39b3059[m feat(api): add DimInventoryItemStatus model
+[34m|[m [35m|[m * [33m582414b9[m feat(api): add DimInventoryItem model
+[34m|[m [35m|[m * [33m2fd4b899[m feat(api): add DimDonor model
+[34m|[m [35m|[m * [33mb231c354[m feat(api): add DimDeliveryMode model
+[34m|[m [35m|[m * [33m38e30a9e[m feat(api): add DimConsignment model
+[34m|[m [35m|[m * [33mc54738c5[m feat(api): add DimBuyerGroup model
+[34m|[m [35m|[m * [33ma3d6c05c[m feat(api): add DimAppeal model
+[34m|[m [35m|[m * [33md15f13b5[m feat(api): add DimAgreementLine model
+[34m|[m [35m|[m[35m/[m  
+[34m|[m [35m|[m * [33mcf7e17d7[m[33m ([m[1;31morigin/add_initial_models[m[33m)[m remove misplaced migration from initial changeover
+[34m|[m [35m|[m * [33m4189338c[m add migrated models for initial spark data
+[34m|[m [35m|[m[35m/[m  
+[34m|[m * [33m1a85020a[m chore: move SPARK models for database and migrations from previous repo
+[34m|[m * [33ma5a1f13c[m fix sentry config local setup issue
+[34m|[m[34m/[m  
+*   [33mce170541[m Merge pull request #2615 from IFRCGo/feat/dref-static-translation
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m711e931e[m fix(test): Update test assertion logic on deployment
+[1;31m|[m * [33m526b80b0[m chore(schema): Update schema and gitmodules url
+[1;31m|[m * [33m9d5a93bb[m chore(dref): register dref fields for translation
+[1;31m|[m * [33m4abddb8e[m feat(dref): Add dref static string translation
+[1;31m|[m[1;31m/[m  
+*   [33m42587133[m fix(local_units): Disable notifications for superusers (#2612)
+[1;33m|[m[1;34m\[m  
+[1;33m|[m * [33med02540c[m fix(local_units): Disable notifications for superusers
+[1;33m|[m[1;33m/[m  
+* [33mf1a71f87[m Project/local unit updates and permisson (#2611)
+* [33m0c83759c[m Limit access to guest when organization type is Other/OTHR
+*   [33mc8f59662[m Merge pull request #2609 from IFRCGo/feature/urllib3-upgrade
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33ma0cfa378[m Upgrade urllib3
+[1;35m|[m[1;35m/[m  
+*   [33mfd94c8fc[m Merge pull request #2602 from IFRCGo/feat/add-artifact-submodule
+[31m|[m[32m\[m  
+[31m|[m * [33me87b36f7[m feat(ci): add schema validation in ci
+[31m|[m * [33m8ad48e44[m feat(submodule): add submodule for assets
+[31m|[m[31m/[m  
+*   [33m14be734d[m Merge pull request #2597 from IFRCGo/feature/fix-surge-alert-csv-export
+[33m|[m[34m\[m  
+[33m|[m * [33m1c0199b2[m Surge Alert CSV fix – same columns across paginated requests
+[33m|[m[33m/[m  
+*   [33m596b1f2c[m Merge pull request #2582 from IFRCGo/fix/dref-related-field-translation
+[35m|[m[36m\[m  
+[35m|[m * [33m2d7bea65[m fix(export): Set default language to en on pdf export
+[35m|[m * [33mdd941deb[m feat(dref): register additional fields for translation
+[35m|[m * [33m34218f4d[m fix(dref): update dref approve permission
+[35m|[m * [33m4b061036[m fix(pdf-export): add language support on pdf export
+[35m|[m * [33md42ee940[m fix(dref): Change relateable models instances to starting langauge
+[35m|[m * [33mb9f8070e[m fix(dref): Update changes on dref translation related models
+[35m|[m * [33m4fe1ac9e[m fix(dref): update related field translation logic
+[35m|[m[35m/[m  
+* [33m14a6f2f0[m Upgrade Django version to 4.2.26
+* [33m77c0701a[m Return the first no-None element in FR num lists
+* [33m84c878ee[m DREF3 enhancement – four new fields
+* [33mf171c695[m Migrate BASECAMP ERUTypes to OSH
+* [33m84890436[m DREF3 enhancement – is_latest_stage
+*   [33m30257d8e[m Merge pull request #2586 from IFRCGo/feature/dref3-enhancements-2025-nov
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33mb506c237[m DREF3 enhancement – field renaming
+* [1;32m|[m   [33m6231854b[m Merge pull request #2585 from IFRCGo/fix/lang-bulk-action
+[1;33m|[m[1;34m\[m [1;32m\[m  
+[1;33m|[m * [1;32m|[m [33m86579492[m fix(lang): Update key on lang/test bulk action
+[1;33m|[m * [1;32m|[m [33m7a84e2ee[m fix(lang): page_name, key unique issue with bulk-action
+[1;33m|[m[1;33m/[m [1;32m/[m  
+* [1;32m|[m [33m0036d81a[m Merge pull request #2583 from IFRCGo/feature/dref3-enhancements-2025-nov
+[1;35m|[m[1;32m\[m[1;32m|[m 
+[1;35m|[m * [33mce81f8ea[m DREF3 enhancements – added fields, filters and tests
+[1;35m|[m[1;35m/[m  
+* [33mfb6d466e[m[33m ([m[1;33mtag: [m[1;33m1.1.508[m[33m)[m Increase version to 508 – for web-app v7.23.0
+*   [33m8b7e303b[m Merge pull request #2581 from IFRCGo/project/dref-translation
+[31m|[m[32m\[m  
+[31m|[m * [33m13381cb9[m chore(dref): Update validation error message
+[31m|[m * [33m1b3f6f18[m fix(dref): update finalize API logic
+[31m|[m * [33m4b599331[m feat(dref): add finalize api for Dref operational update and final report
+[31m|[m * [33m55940916[m feat(dref): add dref finalize api
+[31m|[m * [33m0993bd0a[m refactor(dref): refactor is published to staus
+[31m|[m * [33m111a2880[m  refactor is published to status
+[31m|[m * [33macf476f0[m feat(dref): update dref status
+[31m|[m[31m/[m  
+*   [33mba9d061b[m Merge pull request #2578 from IFRCGo/fix/visibility_for_snippets
+[33m|[m[34m\[m  
+[33m|[m * [33meacdda76[m Region snippets visibility fix
+[33m|[m[33m/[m  
+* [33m4738b32c[m AuthPowerBI env vars v5
+*   [33mcb1c7245[m Merge pull request #2567 from IFRCGo/fix/dref-m2m
+[35m|[m[36m\[m  
+[35m|[m * [33mc2750a6b[m chore(test): Update snapshots deployments test cases
+[35m|[m * [33m7e1fb7de[m chore(dref): Enable and remove skip_fields from dref translation
+[35m|[m * [33mf2ac8b6f[m fix(dref): Handle auto creation of instance for M2M fields
+[35m|[m[35m/[m  
+*   [33maf17e847[m Merge pull request #2572 from IFRCGo/feature/api-endpoint-for-health-units
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m63f1a500[m Filters and tests for Health units
+[1;31m|[m * [33m167c32da[m Endpoint and serializer for Health units
+* [1;32m|[m [33m514e3275[m AuthPowerBI env vars v4 – keeping only workspace_id as env var
+* [1;32m|[m [33m2d4134e9[m AuthPowerBI env vars v3
+* [1;32m|[m [33mab5183fb[m AuthPowerBI env vars v2
+* [1;32m|[m   [33mfd81db9a[m Merge pull request #2570 from IFRCGo/feature/embed-pbi
+[1;33m|[m[1;34m\[m [1;32m\[m  
+[1;33m|[m * [1;32m|[m [33m5a7e5ccd[m AuthPowerBI env vars
+[1;33m|[m * [1;32m|[m [33m8b2661a2[m AuthPowerBI endpoint with some tests
+[1;33m|[m[1;33m/[m [1;32m/[m  
+* [1;32m/[m [33m123c8a94[m Better AppealFilter usage in DREF3
+[1;32m|[m[1;32m/[m  
+* [33m39e133f8[m Allow non-superuser DREF3 queries also + unit test chg
+* [33m5991b9d8[m AppealDocumentAdmin ordering possibility by first column
+* [33m8db9bcbd[m Update CHANGELOG.md
+* [33mb60367da[m More filters for SurgeAlerts
+* [33m8d99e16d[m ERU filters to Admin page
+* [33m1c75b84d[m Verbose ERU listing on Admin page
+*   [33mda4cb2f6[m Merge pull request #2550 from IFRCGo/feat/jwt-monty
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33mf6a7c437[m test(token): update test cases
+[1;35m|[m * [33m6935dac6[m feat(token): update algorithm to RSA
+[1;35m|[m[1;35m/[m  
+*   [33m16f7a2e8[m Merge pull request #2564 from IFRCGo/feature/ns-initiatives-categories
+[31m|[m[32m\[m  
+[31m|[m * [33m0ab922ca[m NS initiatives categories translated
+[31m|[m * [33m46021acb[m NS initiatives – 4 lang categories
+[31m|[m[31m/[m  
+* [33m197783f2[m Rename Users per permission in Admin index
+* [33mb1797f40[m Fix .pre-commit-config.yaml to skip migration files
+*   [33m6b3f34f0[m Merge pull request #2563 from IFRCGo/feature/admin-page-to-query-users
+[33m|[m[34m\[m  
+[33m|[m * [33m1a34a703[m Expose Permissions entry at Authentication and Authorization
+* [34m|[m [33mf3985838[m Merge pull request #2562 from IFRCGo/feature/admin-page-to-query-users
+[35m|[m[34m\[m[34m|[m 
+[35m|[m * [33me406b96a[m Better search for User groups – worldwise
+* [36m|[m [33m1b563c00[m Merge pull request #2561 from IFRCGo/feature/admin-page-to-query-users
+[1;31m|[m[36m\[m[36m|[m 
+[1;31m|[m * [33mfc32cee2[m Add filter and SU flag to the User query page
+* [1;32m|[m [33m77d54884[m Merge pull request #2560 from IFRCGo/feature/admin-page-to-query-users
+[1;33m|[m[1;32m\[m[1;32m|[m 
+[1;33m|[m * [33m14b95681[m Admin page to query users by permissions
+[1;33m|[m[1;33m/[m  
+* [33mb367bdeb[m Use safe_username where + can be present
+*   [33m753ffe75[m Merge pull request #2557 from IFRCGo/feature/nsia-risk-field-translated
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33m2bdb8210[m Translate NSIA Risk of NS-initiatives
+[1;35m|[m[1;35m/[m  
+*   [33m3520595c[m Merge pull request #2556 from IFRCGo/feature/nsia-risk-field
+[31m|[m[32m\[m  
+[31m|[m * [33mb8af06aa[m Add NSIA Risk field to NS-initiatives
+* [32m|[m   [33m0ad4d701[m Merge pull request #2555 from IFRCGo/chore/disable-translation-on-dref
+[32m|[m[34m\[m [32m\[m  
+[32m|[m [34m|[m[32m/[m  
+[32m|[m[32m/[m[34m|[m   
+[32m|[m * [33m82ab62d6[m feat(dref): Skips fields on dref translation
+[32m|[m * [33mbd8ce6d8[m chore(dref): disable traslation on derf
+[32m|[m[32m/[m  
+* [33ma72818db[m Fix local unit health data reader
+*   [33m0b28ce55[m Merge pull request #2554 from IFRCGo/chore/disable-local-unit-email-notifications
+[35m|[m[36m\[m  
+[35m|[m * [33m54669949[m Disable tasks.py sending notifications
+[35m|[m * [33m183fec92[m chore(local-unit): disable local unit email notification
+[35m|[m[35m/[m  
+*   [33m11593bd2[m Merge pull request #2470 from IFRCGo/feature/schema-file
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33mb8f7eb36[m feat(schema-file): add openapi schema file
+[1;31m|[m[1;31m/[m  
+*   [33m511d86fc[m Merge branch 'master' into develop
+[1;33m|[m[1;34m\[m  
+[1;33m|[m *   [33ma465a612[m Merge pull request #2541 from IFRCGo/hotfix/old-dref-final-report-export
+[1;33m|[m [1;35m|[m[1;36m\[m  
+[1;33m|[m [1;35m|[m * [33m9b00711d[m Add enum for old DREF final report export
+[1;33m|[m [1;35m|[m[1;35m/[m  
+[1;33m|[m *   [33m9c42b392[m Merge branch 'develop' – TranslationCache v1.1
+[1;33m|[m [31m|[m[32m\[m  
+[1;33m|[m * [32m|[m [33m68bc9dcf[m Update changelog
+[1;33m|[m * [32m|[m   [33m3ca4c752[m Merge branch 'develop'
+[1;33m|[m [33m|[m[34m\[m [32m\[m  
+[1;33m|[m * [34m\[m [32m\[m   [33m01cdcad0[m Merge branch 'develop' – Prod favicon to go-ui-color-blue-90
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m\[m [34m\[m [32m\[m   [33m13b0087d[m Merge branch 'develop' – Add translation cache + favicon
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m40616efe[m Merge branch 'develop' – Fix ingest_ns_document
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33ma1368289[m Merge branch 'develop' – DREF3 changes about allocations and numbering
+[1;33m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m2871f4e3[m Merge branch 'develop' – Set DREF to active for unpublished Final Reps
+[1;33m|[m [31m|[m[32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m5fba9572[m Merge branch 'develop' – Date of orientation to PER process status
+[1;33m|[m [33m|[m[34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mf02950a1[m Merge pull request #2507 from IFRCGo/develop
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m917dccf3[m Merge branch 'develop' – OpsLearning get_queryset for the Admin page
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m3ed51b0b[m Merge branch 'develop' – Fix for OpsLearning validation
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33ma7a1aa1a[m Sunsetting BrowsableAPIRenderer in remote environments
+[1;33m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m86a93a1c[m Merge pull request #2498 from IFRCGo/develop
+[1;33m|[m [31m|[m[32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33md3211018[m Merge pull request #2497 from IFRCGo/develop
+[1;33m|[m [33m|[m[34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m82c10c88[m Merge pull request #2494 from IFRCGo/develop
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33maba15821[m Avoid returning nothing as middleware response – Merge branch 'develop'
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33meed2bc55[m DREF3 API endpoint - v1
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mc4b05c3e[m Merge branch 'develop' – Donors info only for authenticated users
+[1;33m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m7f258a59[m Merge branch 'develop' – Custom cronjob resources setting options
+[1;33m|[m [31m|[m[32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mb8070723[m Merge branch 'develop'
+[1;33m|[m [33m|[m[34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33mffe80e80[m fix(nginx): remove unrequired headers
+[1;33m|[m * [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m   [33m260ae959[m Merge pull request #2469 from IFRCGo/develop
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33m1629a732[m One notif. addressee – no BCC anonimization needed
+[1;33m|[m * [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33m03557f27[m Reschedule ingest_appeals job to half hour
+[1;33m|[m * [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33m7f5c3649[m Skip FTS_HPC processing when no data
+[1;33m|[m * [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33mf52393e6[m Fix TypeError of /api/v1/search/, Sentry GO-API-36R
+[1;33m|[m * [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m   [33m8a0890cd[m Merge pull request #2453 from IFRCGo/develop
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33m7c603244[m Listing page for DREF national society actions
+[1;33m|[m * [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33me292d9af[m Avoid a no-attribute error in django middleware
+[1;33m|[m * [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m   [33m47cb42f9[m Merge pull request #2430 from IFRCGo/develop
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m365c5614[m Merge pull request #2422 from IFRCGo/develop
+[1;33m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mb71e27f8[m Merge pull request #2418 from IFRCGo/develop
+[1;33m|[m [31m|[m[32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m939a4cd2[m Merge pull request #2415 from IFRCGo/develop
+[1;33m|[m [33m|[m[34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m51383911[m Merge branch 'develop'
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m1f0b6a45[m Use English dtype name for ERP sending
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33ma7b199d0[m Merge pull request #2411 from IFRCGo/develop
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mbbb41dfa[m Merge pull request #2409 from IFRCGo/develop
+[1;33m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33me4d6e103[m Change sync_molnix schedule
+[1;33m|[m * [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33me38f86e8[m Molnix data structure change
+[1;33m|[m * [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m   [33m3af3eba0[m Merge pull request #2377 from IFRCGo/develop
+[1;33m|[m [31m|[m[32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mf8e898a7[m Merge pull request #2374 from IFRCGo/develop
+[1;33m|[m [33m|[m[34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33m1974a30c[m Fix synx_molnix position_id issue
+[1;33m|[m * [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m   [33m8128990d[m Merge pull request #2337 from IFRCGo/develop
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m030e9037[m Merge pull request #2308 from IFRCGo/develop
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33ma0babd9e[m Merge pull request #2302 from IFRCGo/develop
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33mb403eac5[m Merge branch 'develop' – new translation API
+[1;33m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m [1;35m|[m * [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33m98acb2eb[m Fix snapshot test morphing
+[1;33m|[m * [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m   [33m41e44de4[m Merge branch 'develop'
+[1;33m|[m [31m|[m[32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33me80f99d0[m Merge branch 'develop'
+[1;33m|[m [33m|[m[34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m693c16c4[m Merge pull request #2272 from IFRCGo/develop
+[1;33m|[m [35m|[m[36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m239d9afe[m Merge pull request #2271 from IFRCGo/fix/permission-issue-ops
+[1;33m|[m [1;31m|[m[1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+[1;33m|[m * [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m   [33m38484c3b[m Merge pull request #2262 from IFRCGo/develop
+[1;33m|[m [1;33m|[m[1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m [1;36m\[m [1;34m\[m [1;32m\[m [36m\[m [34m\[m [32m\[m  
+* [1;33m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [1;36m|[m [1;34m|[m [1;32m|[m [36m|[m [34m|[m [32m|[m [33mea48707d[m[33m ([m[1;33mtag: [m[1;33m1.1.507[m[33m)[m Increase version to 507 – for web-app v7.22.1
