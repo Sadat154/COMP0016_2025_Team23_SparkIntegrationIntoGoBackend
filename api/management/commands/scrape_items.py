@@ -43,7 +43,7 @@ class Command(BaseCommand):
 
             self.stdout.write(
                 self.style.SUCCESS(
-                    f"✓ Found {len(result['all_urls'])} unique product URLs across {result['total_categories']} categories"
+                    f"Found {len(result['all_urls'])} unique product URLs across {result['total_categories']} categories"
                 )
             )
 
@@ -53,7 +53,7 @@ class Command(BaseCommand):
             if not code_results or not code_results.get("code_to_url"):
                 raise CommandError("No codes found during extraction phase")
 
-            self.stdout.write(self.style.SUCCESS(f"✓ Found {len(code_results['code_to_url'])} unique item codes"))
+            self.stdout.write(self.style.SUCCESS(f"Found {len(code_results['code_to_url'])} unique item codes"))
             self.stdout.write(self.style.WARNING(f"  ({len(code_results['missing_code_urls'])} URLs had no codes)"))
 
             self.stdout.write(self.style.HTTP_INFO("\nSaving to database..."))
@@ -66,11 +66,11 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.HTTP_INFO("Saving JSON files..."))
                 scraper.save_to_json(code_results["code_to_url"], "code_to_url.json")
                 scraper.save_to_json(code_results["missing_code_urls"], "missing_code_urls.json")
-                self.stdout.write(self.style.SUCCESS("✓ JSON files saved"))
+                self.stdout.write(self.style.SUCCESS("JSON files saved"))
 
             self.stdout.write(
                 self.style.SUCCESS(
-                    "\n✓ Scraping completed successfully! " "Item code mappings are now available in the database."
+                    "\nScraping completed successfully! " "Item code mappings are now available in the database."
                 )
             )
 
