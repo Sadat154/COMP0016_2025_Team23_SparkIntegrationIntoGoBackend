@@ -921,6 +921,20 @@ class FabricImportAPIView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def post(self, request):
+        """Import Fabric data into the CleanedFrameworkAgreement model.
+
+        The endpoint accepts either a JSON array provided in the ``data``
+        property or a ``url`` pointing to JSON/NDJSON content. The caller
+        must supply a ``stage`` indicating which Fabric stage to import
+        (this implementation currently supports ``dim-agreement-line``).
+
+        Optional boolean ``truncate`` in the payload will clear existing
+        records before import.
+
+        Returns a DRF ``Response`` with ``{"imported": <count>}`` on
+        success or an error payload on failure.
+        """
+
         stage = request.data.get("stage")
         if not stage:
             return Response({"error": "Missing `stage`"}, status=status.HTTP_400_BAD_REQUEST)
