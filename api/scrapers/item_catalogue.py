@@ -16,6 +16,17 @@ if not settings.configured:
 
 
 class RedCrossItemScraper:
+    """Scraper for the itemscatalogue.redcross.int site.
+
+    Provides methods to fetch pages, extract category and product URLs, 
+    parse product pages to find item codes, and persist results to JSON 
+    or the database.
+
+    Args:
+        base_url: Base URL of the catalogue site. Defaults to
+            ``https://itemscatalogue.redcross.int``.
+    """
+
     def __init__(self, base_url: str = "https://itemscatalogue.redcross.int"):
         self.base_url = base_url
         self.session = requests.Session()
@@ -31,7 +42,19 @@ class RedCrossItemScraper:
         )
 
     def fetch_page_with_scrolling(self, url: str) -> Optional[BeautifulSoup]:
-        """Fetch a page using Playwright and scroll to load all dynamic content"""
+        """Fetch a page using Playwright and scroll to load dynamic content.
+
+        This method launches a headless Chromium instance via Playwright,
+        navigates to ``url``, scrolls incrementally until the page no
+        longer grows in height, and returns a BeautifulSoup object parsed 
+        from the final HTML.
+
+        Args:
+            url: The absolute URL to fetch.
+
+        Returns:
+            BeautifulSoup | None: Parsed HTML soup, or ``None`` on error.
+        """
         try:
             print(f"Fetching (with JS rendering): {url}")
             with sync_playwright() as p:
@@ -60,7 +83,19 @@ class RedCrossItemScraper:
             return None
 
     def fetch_page(self, url: str, timeout: int = 10) -> Optional[BeautifulSoup]:
-        """Fetch a page using requests (faster, no JS rendering)"""
+        """Fetch a page.
+
+        Uses a persistent ``requests.Session`` configured with a
+        browser-like ``User-Agent`` header. Returns a BeautifulSoup
+        instance for the response HTML on success.
+
+        Args:
+            url: The absolute URL to fetch.
+            timeout: Request timeout in seconds.
+
+        Returns:
+            BeautifulSoup | None: Parsed HTML soup, or ``None`` on failure.
+        """
         try:
             print(f"Fetching: {url}")
             response = self.session.get(url, timeout=timeout)
@@ -74,6 +109,21 @@ class RedCrossItemScraper:
             return None
 
     def extract_top_level_categories(self, soup: BeautifulSoup) -> List[Dict[str, str]]:
+        """Extract top-level category titles and URLs from the homepage.
+
+        Scans the provided ``soup`` for the expected category link
+        elements, filters out the 'GREEN' category, normalises titles to
+        uppercase, and returns a list of dicts with ``title`` and
+        ``url`` keys.
+
+        Args:
+            soup: BeautifulSoup parsed HTML of the homepage.
+
+        Returns:
+            list[dict]: List of category mappings containing ``title`` and
+            ``url``. May be empty if the expected structure is not found.
+        """
+
         categories = []
 
         form = soup.find("form", {"name": "aspnetForm"})
@@ -98,6 +148,20 @@ class RedCrossItemScraper:
         return categories
 
     def extract_product_urls_from_container(self, soup: BeautifulSoup) -> List[str]:
+        """Extract product page URLs from a category page container.
+
+        Looks for the ``div.container.products`` block inside the
+        ``aspnetForm`` form and collects unique product links found in
+        grid items.
+
+        Args:
+            soup: BeautifulSoup parsed HTML of a category page.
+
+        Returns:
+            list[str]: Unique absolute product URLs discovered on the
+            page, in the order encountered.
+        """
+
         urls = []
         seen_urls = set()
 
@@ -132,6 +196,20 @@ class RedCrossItemScraper:
         return urls
 
     def collect_products_from_top_level_categories(self, homepage_url: str) -> Dict:
+        """Collect product URLs from all top-level categories.
+
+        Fetches the homepage, extracts top-level categories, visits each
+        category page with JavaScript rendering (to allow infinite
+        scrolling), and extracts product URLs per category.
+
+        Args:
+            homepage_url: The homepage URL to start the crawl from.
+
+        Returns:
+            dict: Summary with keys: ``all_urls``, ``products_by_category``,
+            ``total_categories``, ``total_urls``, and ``unique_urls``.
+        """
+
         print("Fetching homepage and extracting top-level categories...")
         homepage_soup = self.fetch_page(homepage_url)
         if not homepage_soup:
@@ -175,6 +253,20 @@ class RedCrossItemScraper:
         }
 
     def extract_codes_from_product_page(self, soup: BeautifulSoup) -> List[str]:
+        """Parse a product page and extract item codes.
+
+        Handles a couple of presentation patterns used on product pages:
+        - spans with ids containing ``rp_code``
+        - label/value rows where the label is "Code" and the value
+          contains the code string.
+
+        Args:
+            soup: BeautifulSoup parsed HTML of a product page.
+
+        Returns:
+            list[str]: Unique codes found on the page, in order found.
+        """
+
         codes: List[str] = []
         seen = set()
 
@@ -218,6 +310,21 @@ class RedCrossItemScraper:
         return codes
 
     def build_code_to_url_mapping(self, urls: List[str]) -> Dict[str, any]:
+        """Build a mapping from item code to product page URL.
+
+        Iterates the provided product URLs, parses each page for item
+        codes using :meth:`extract_codes_from_product_page`, and returns
+        a mapping of code -> url plus a list of URLs where no codes were
+        discovered.
+
+        Args:
+            urls: Iterable of absolute product page URLs to inspect.
+
+        Returns:
+            dict: A dictionary with keys ``code_to_url`` (dict) and
+            ``missing_code_urls`` (list).
+        """
+
         code_to_url: Dict[str, str] = {}
         missing_codes: List[str] = []
 
@@ -246,6 +353,12 @@ class RedCrossItemScraper:
         return {"code_to_url": code_to_url, "missing_code_urls": missing_codes}
 
     def save_to_json(self, data: Union[Dict, List], filename: str = "scraped_data.json"):
+        """Persist a Python object to a JSON file.
+
+        Args:
+            data: The mapping or sequence to serialize.
+            filename: Output filename. Defaults to ``scraped_data.json``.
+        """
         try:
             with open(filename, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
@@ -310,11 +423,9 @@ def main():
     print(f"Total unique codes found: {len(code_results['code_to_url'])}")
     print(f"URLs with missing codes: {len(code_results['missing_code_urls'])}")
 
-    # Save to JSON files
     scraper.save_to_json(code_results["code_to_url"], "code_to_url.json")
     scraper.save_to_json(code_results["missing_code_urls"], "missing_code_urls.json")
 
-    # Save to database
     scraper.save_to_database(code_results["code_to_url"])
 
     print("\n" + "=" * 80)
