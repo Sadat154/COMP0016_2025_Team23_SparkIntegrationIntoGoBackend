@@ -18,10 +18,32 @@ from api.models import (
 
 
 def _safe_str(v):
+    """Convert a value to a string, returning an empty string if None.
+
+    Args:
+        v: The value to convert.
+
+    Returns:
+        str: The string representation of v, or an empty string if v is None.
+    """
     return "" if v is None else str(v)
 
 
 def _fetch_goadmin_maps():
+    """Fetch country and region mapping data from the GO Admin API.
+
+    Retrieves country/region data and builds lookup dictionaries for:
+    - ISO2 to ISO3 country code conversion
+    - ISO3 to country name mapping
+    - ISO3 to region name mapping
+
+    Returns:
+        tuple: A tuple of three dictionaries:
+            - iso2_to_iso3 (dict): Maps ISO2 codes to ISO3 codes.
+            - iso3_to_country_name (dict): Maps ISO3 codes to country names.
+            - iso3_to_region_name (dict): Maps ISO3 codes to region names.
+            Returns three empty dicts if the API request fails.
+    """
     GOADMIN_COUNTRY_URL_DEFAULT = "https://goadmin.ifrc.org/api/v2/country/?limit=300"
     url = getattr(settings, "GOADMIN_COUNTRY_URL", GOADMIN_COUNTRY_URL_DEFAULT)
     try:
@@ -68,7 +90,7 @@ def _fetch_goadmin_maps():
 
 
 class Command(BaseCommand):
-    help = "Bulk-index warehouse × product aggregates into Elasticsearch"
+    help = "Bulk-index warehouse product aggregates into Elasticsearch"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -81,6 +103,12 @@ class Command(BaseCommand):
         parser.add_argument("--batch-size", type=int, default=500, help="Bulk helper chunk size (default: 500)")
 
     def handle(self, *args, **options):
+        """Execute the bulk indexing of warehouse stock data into Elasticsearch.
+
+        Aggregates inventory transaction lines by warehouse and product,
+        attaches country/region metadata from the GO Admin API, and
+        bulk-indexes the resulting documents into Elasticsearch.
+        """
         if ES_CLIENT is None:
             logger.error("Elasticsearch client not configured (ES_CLIENT is None).")
             return
@@ -91,11 +119,10 @@ class Command(BaseCommand):
         logger.info("Building lookup tables for products, warehouses and categories")
 
         warehouses = DimWarehouse.objects.all().values("id", "name", "country")
-        # Build warehouse lookup; store raw country field and warehouse id for later iso2->iso3 fallback
         wh_by_id = {
             str(w["id"]): {
                 "warehouse_name": _safe_str(w.get("name")),
-                "country_iso3_raw": _safe_str(w.get("country")).upper(),  # may be empty
+                "country_iso3_raw": _safe_str(w.get("country")).upper(), 
                 "warehouse_id_raw": _safe_str(w.get("id")),
             }
             for w in warehouses
@@ -140,7 +167,6 @@ class Command(BaseCommand):
             if not wh or not prod:
                 continue
 
-            # Quantity as numeric if possible
             qty = row.get("quantity")
             if qty is None:
                 qty_num = None
@@ -156,10 +182,8 @@ class Command(BaseCommand):
                     qty_num = None
 
             status_val = _safe_str(row.get("item_status_name"))
-            # include status in doc id to avoid collisions when multiple statuses exist
             doc_id = f"{warehouse_id}__{product_id}__{status_val}"
 
-            # Derive country_iso3: prefer stored value, else extract 2-letter prefix from warehouse ID and convert iso2->iso3
             country_iso3_raw = wh.get("country_iso3_raw") or ""
             if country_iso3_raw:
                 country_iso3 = country_iso3_raw

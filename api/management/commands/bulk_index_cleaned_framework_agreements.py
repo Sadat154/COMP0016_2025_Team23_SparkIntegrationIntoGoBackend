@@ -10,6 +10,14 @@ from api.models import CleanedFrameworkAgreement
 
 
 def _to_float(value):
+    """Safely convert a value to float.
+
+    Args:
+        value: The value to convert to float.
+
+    Returns:
+        float | None: The converted float, or ``None`` on failure.
+    """
     if value is None:
         return None
     if isinstance(value, Decimal):
@@ -24,6 +32,15 @@ def _to_float(value):
 
 
 def _to_iso(value):
+    """Convert a datetime-like value to an ISO 8601 string.
+
+    Args:
+        value: A datetime-like object that implements ``isoformat()``.
+
+    Returns:
+        str | None: The ISO 8601 string representation, or ``None`` on
+        failure.
+    """
     if value is None:
         return None
     try:
@@ -39,6 +56,12 @@ class Command(BaseCommand):
         parser.add_argument("--batch-size", type=int, default=500, help="Bulk helper chunk size (default: 500)")
 
     def handle(self, *args, **options):
+        """Run the bulk indexing process for cleaned framework agreements.
+
+        Aggregates rows from the ``CleanedFrameworkAgreement`` model into
+        documents suitable for indexing and uses the Elasticsearch bulk
+        helper to write them into the configured index.
+        """
         if ES_CLIENT is None:
             logger.error("Elasticsearch client not configured (ES_CLIENT is None).")
             return

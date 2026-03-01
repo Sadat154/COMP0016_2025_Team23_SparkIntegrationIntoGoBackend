@@ -127,6 +127,14 @@ class Command(BaseCommand):
         return kwargs
 
     def handle(self, *args, **options):
+        """Execute the staged, chunked one-time pull from Fabric into Postgres.
+
+        The command iterates the configured ``FABRIC_IMPORT_STAGES``, pulls
+        rows from Fabric in chunks using the configured pagination mode
+        (keyset or row_number), converts rows into Django model kwargs and
+        bulk-inserts them into the local Postgres database. 
+        """
+
         only = set(options["only"] or [])
         exclude = set(options["exclude"] or [])
         chunk_size = int(options["chunk_size"])
