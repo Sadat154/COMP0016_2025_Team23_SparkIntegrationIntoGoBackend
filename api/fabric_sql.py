@@ -15,6 +15,19 @@ _token_cache = {"token_struct": None, "exp": 0}
 
 
 def _get_access_token_struct() -> bytes:
+    """Return an access token packed as the SQL Server expects.
+
+    The Azure CLI credential is used to request an access token for the
+    Fabric SQL resource scope. The underlying ODBC driver expects the
+    token as a little-endian UTF-16 byte string prefixed by the length
+    as a 32-bit unsigned integer; this function builds that structure
+    and caches it together with its expiry time. Cached tokens are
+    reused until they are within 60 seconds of expiry.
+
+    Returns:
+        bytes: The packed token structure suitable for passing to
+        ``pyodbc.connect(..., attrs_before={SQL_COPT_SS_ACCESS_TOKEN: ...})``.
+    """
     import time as _t
 
     now = _t.time()
@@ -30,6 +43,22 @@ def _get_access_token_struct() -> bytes:
 
 
 def get_fabric_connection() -> pyodbc.Connection:
+    """Create and return a pyodbc connection to the Fabric SQL server.
+
+    Environment variables ``FABRIC_SQL_SERVER`` and
+    ``FABRIC_SQL_DATABASE`` must be set. The function builds an ODBC
+    connection string for ``ODBC Driver 18 for SQL Server``, obtains an
+    Azure AD access token via :func:`_get_access_token_struct`, and
+    supplies it to the driver via the ``attrs_before`` parameter. The
+    connection is retried a few times on transient failures.
+
+    Returns:
+        pyodbc.Connection: A live connection object.
+
+    Raises:
+        RuntimeError: If required environment variables are missing.
+        pyodbc.Error: The last connection error if all retries fail.
+    """
     server = os.getenv("FABRIC_SQL_SERVER")
     database = os.getenv("FABRIC_SQL_DATABASE")
     if not server or not database:
@@ -65,6 +94,21 @@ def get_fabric_connection() -> pyodbc.Connection:
 
 
 def fetch_all(sql: str, params: tuple | None = None, limit: int = 50) -> list[dict]:
+    """Execute a SQL query on Fabric and return rows as dictionaries.
+
+    A convenience wrapper around :func:`get_fabric_connection` that
+    executes ``sql`` with optional ``params`` and returns up to
+    ``limit`` rows as a list of dicts keyed by column name.
+
+    Args:
+        sql: The SQL statement to execute (use ``?`` placeholders for
+            parameters).
+        params: Optional sequence of parameters to bind to the query.
+        limit: Maximum number of rows to return.
+
+    Returns:
+        list[dict]: A list of row dictionaries.
+    """
     params = params or ()
     with get_fabric_connection() as conn:
         cur = conn.cursor()
