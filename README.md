@@ -2,6 +2,59 @@
 
 [![CircleCI](https://circleci.com/gh/IFRCGo/go-api.svg?style=svg&circle-token=4337c3da24907bbcb5d6aa06f0d60c5f27845435)](https://circleci.com/gh/IFRCGo/go-api)
 
+# For The Purpose of COMP0016 Marking
+
+## Requirements
+
+-   docker
+
+## Project Setup
+
+### Prerequisites
+
+Create a `.env` file with the following:
+
+     DJANGO_SECRET_KEY=
+     JWT_PRIVATE_KEY_BASE64_ENCODED=
+     JWT_PUBLIC_BASE64_ENCODED=
+     FABRIC_SQL_SERVER=
+     FABRIC_SQL_DATABASE="logistics_gold"
+
+### Setup
+
+     $ docker compose build
+     $ docker compose run --rm migrate
+     $ docker compose run --rm loaddata
+
+### Creating and Build ElasticSearch Indices for SPARK
+
+     $ docker compose run --rm serve python manage.py create_build_index_for_spark
+
+### Scrape Item Catalogue URLs
+
+     $ docker compose run --rm serve python manage.py scrape_items
+
+## Pulling Fabric Data
+
+### 1. Environment setup (`.env`)
+     Add the following variables to your `.env` file:
+
+     FABRIC_SQL_SERVER=""
+     FABRIC_SQL_DATABASE="logistics_gold"
+
+     Set FABRIC_SQL_SERVER to the SQL endpoint from Microsoft Fabric:
+     Fabric → Logistics Gold → Settings → SQL endpoint
+
+### 2. Build
+     Rebuild and run services so changes take effect
+     $ docker compose build
+     $ docker compose run --rm migrate
+     $ docker compose up serve celery
+     $ docker compose exec serve az login (follow instr on screen)
+
+### 3. Pull Data
+     $ docker compose exec serve python manage.py pull_fabric_data
+
 # IFRC GO API
 
 ## Staff email domains
@@ -37,40 +90,6 @@ email-verification only, is to be found
 ### Applying the last migration files to database
 
      $ docker-compose run --rm migrate
-
-### Scrape Item Catalogue URLs
-
-     $ docker compose run --rm serve python manage.py scrape_items
-
-## Pulling Fabric Data
-
-### 1. Environment setup (`.env`)
-     Add the following variables to your `.env` file:
-
-     FABRIC_SQL_SERVER=""
-     FABRIC_SQL_DATABASE="logistics_gold"
-
-     Set FABRIC_SQL_SERVER to the SQL endpoint from Microsoft Fabric:
-     Fabric → Logistics Gold → Settings → SQL endpoint
-
-### 2. Build
-     Rebuild and run services so changes take effect
-     $ docker compose build
-     $ docker compose run --rm migrate
-     $ docker compose up serve celery
-     $ docker compose exec serve az login (follow instr on screen)
-
-### 3. Pull Data
-     $ docker compose exec serve python manage.py pull_fabric_data
-
-## Elasticsearch (Cleaned Framework Agreements)
-
-If you want the `/api/v2/fabric/cleaned-framework-agreements/` endpoint to use Elasticsearch locally, create the index and bulk index the data:
-
-
-     $ docker compose run --rm serve python manage.py create_cleaned_framework_agreements_index
-     
-     $ docker compose run --rm serve python manage.py bulk_index_cleaned_framework_agreements
 
 ## Backend CI Checks (Run Locally)
 
