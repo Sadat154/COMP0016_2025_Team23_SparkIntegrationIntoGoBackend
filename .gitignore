@@ -51,3 +51,4 @@ htmlcov
 country-key-documents/
 celerybeat-schedule
 .venv
+scripts/notes.md

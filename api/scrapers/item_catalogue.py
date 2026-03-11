@@ -1,6 +1,6 @@
 import json
 import time
-from typing import Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 from urllib.parse import urljoin
 
 import django
@@ -167,19 +167,13 @@ class RedCrossItemScraper:
 
         form = soup.find("form", {"name": "aspnetForm"})
         if not form:
-            print("  DEBUG: aspnetForm not found")
             return urls
 
         products_div = form.find("div", class_="container products")
-
         if not products_div:
-            print("  DEBUG: 'container products' div not found in aspnetForm")
             return urls
 
-        print("  DEBUG: Found products container")
-
         product_divs = products_div.find_all("div", class_=lambda x: x and "product" in x and "grid-group-item" in x)
-        print(f"  DEBUG: Found {len(product_divs)} product grid items")
 
         for product_div in product_divs:
             link = product_div.find("a", href=True)
@@ -192,7 +186,6 @@ class RedCrossItemScraper:
                         seen_urls.add(full_url)
                         urls.append(full_url)
 
-        print(f"  DEBUG: Extracted {len(urls)} unique product URLs")
         return urls
 
     def collect_products_from_top_level_categories(self, homepage_url: str) -> Dict:
@@ -217,8 +210,6 @@ class RedCrossItemScraper:
 
         top_level_categories = self.extract_top_level_categories(homepage_soup)
         print(f"\nFound {len(top_level_categories)} top-level categories (excluding GREEN)")
-
-        print("\nScraping product URLs from each top-level category page...")
 
         all_urls = []
         products_by_category = {}
@@ -285,7 +276,6 @@ class RedCrossItemScraper:
         rows = tbody.find_all("tr")
 
         for row in rows:
-            # Pattern 1: spans containing codes
             code_spans = row.find_all("span", id=lambda x: x and "rp_code" in x)
             for span in code_spans:
                 code = span.get_text(strip=True)
@@ -293,13 +283,10 @@ class RedCrossItemScraper:
                     seen.add(code)
                     codes.append(code)
 
-            # Pattern 2: label-value pair structure
-            # Find divs with class 'label-table' that contain "Code"
             label_divs = row.find_all("div", class_="label-table")
             for label_div in label_divs:
                 label_text = label_div.get_text(strip=True)
                 if label_text.lower() == "code":
-                    # Find the next sibling div with class 'value-table'
                     value_div = label_div.find_next_sibling("div", class_="value-table")
                     if value_div:
                         code = value_div.get_text(strip=True)
@@ -309,22 +296,7 @@ class RedCrossItemScraper:
 
         return codes
 
-    def build_code_to_url_mapping(self, urls: List[str]) -> Dict[str, any]:
-        """Build a mapping from item code to product page URL.
-
-        Iterates the provided product URLs, parses each page for item
-        codes using :meth:`extract_codes_from_product_page`, and returns
-        a mapping of code -> url plus a list of URLs where no codes were
-        discovered.
-
-        Args:
-            urls: Iterable of absolute product page URLs to inspect.
-
-        Returns:
-            dict: A dictionary with keys ``code_to_url`` (dict) and
-            ``missing_code_urls`` (list).
-        """
-
+    def build_code_to_url_mapping(self, urls: List[str]) -> Dict[str, Any]:
         code_to_url: Dict[str, str] = {}
         missing_codes: List[str] = []
 
@@ -367,7 +339,7 @@ class RedCrossItemScraper:
             print(f"Error saving to JSON: {e}")
 
     def save_to_database(self, code_to_url_mapping: Dict[str, str], clear_existing: bool = True):
-        """Save code to URL mappings to the ItemCodeMapping model"""
+        """Save code to URL mappings to the ItemCodeMapping model."""
         try:
             if clear_existing:
                 print("Clearing existing mappings...")
@@ -375,10 +347,7 @@ class RedCrossItemScraper:
 
             print(f"Saving {len(code_to_url_mapping)} mappings to database...")
 
-            # Prepare bulk create objects
             mappings = [ItemCodeMapping(code=code, url=url) for code, url in code_to_url_mapping.items()]
-
-            # Bulk create for efficiency
             ItemCodeMapping.objects.bulk_create(mappings, batch_size=1000)
 
             print(f"Successfully saved {len(mappings)} mappings to database")
@@ -425,7 +394,6 @@ def main():
 
     scraper.save_to_json(code_results["code_to_url"], "code_to_url.json")
     scraper.save_to_json(code_results["missing_code_urls"], "missing_code_urls.json")
-
     scraper.save_to_database(code_results["code_to_url"])
 
     print("\n" + "=" * 80)

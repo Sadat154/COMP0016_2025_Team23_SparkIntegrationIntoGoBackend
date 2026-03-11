@@ -97,6 +97,10 @@ email-verification only, is to be found
 
      $ docker-compose run --rm migrate
 
+### Stock Inventory Transformation Checks
+     $ docker compose run --rm serve python manage.py test api.test_data_transformation_stock_inventory --keepdb --verbosity=1
+
+
 ### Accessing python shell
 
      $ docker-compose run --rm shell

@@ -31,7 +31,7 @@ def _get_access_token_struct() -> bytes:
     import time as _t
 
     now = _t.time()
-    if _token_cache["token_struct"] and now < _token_cache["exp"] - 60:
+    if _token_cache["token_struct"] and now < (_token_cache["exp"] - 120):
         return _token_cache["token_struct"]
 
     tok = _cred.get_token(SCOPE)
@@ -93,26 +93,9 @@ def get_fabric_connection() -> pyodbc.Connection:
     raise last
 
 
-def fetch_all(sql: str, params: tuple | None = None, limit: int = 50) -> list[dict]:
-    """Execute a SQL query on Fabric and return rows as dictionaries.
-
-    A convenience wrapper around :func:`get_fabric_connection` that
-    executes ``sql`` with optional ``params`` and returns up to
-    ``limit`` rows as a list of dicts keyed by column name.
-
-    Args:
-        sql: The SQL statement to execute (use ``?`` placeholders for
-            parameters).
-        params: Optional sequence of parameters to bind to the query.
-        limit: Maximum number of rows to return.
-
-    Returns:
-        list[dict]: A list of row dictionaries.
-    """
+def fetch_all(cursor, sql: str, params: tuple | None = None, limit: int = 50) -> list[dict]:
     params = params or ()
-    with get_fabric_connection() as conn:
-        cur = conn.cursor()
-        cur.execute(sql, params)
-        cols = [c[0] for c in cur.description]
-        rows = cur.fetchmany(limit)  # cur.fetchall() for everything, i used limit for testing purposes
-        return [dict(zip(cols, row)) for row in rows]
+    cursor.execute(sql, params)
+    cols = [c[0] for c in cursor.description]
+    rows = cursor.fetchmany(limit)  # cur.fetchall() for everything, i used limit for testing purposes
+    return [dict(zip(cols, row)) for row in rows]
